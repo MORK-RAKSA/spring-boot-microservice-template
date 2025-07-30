@@ -1,0 +1,43 @@
+plugins{
+    id 'java'
+    id 'org.springframework.boot' version '3.5.0' apply false
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'java-library'
+}
+
+ext {
+    set('springBootVersion', '3.5.0')
+    set('resilience4jVersion', '2.2.0')
+    set('springCloudVersion', '2025.0.0')
+}
+
+allprojects {
+    group = 'com.raksa.app'
+    version = '1.0.0'
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'war'
+
+    java {
+        sourceCompatibility = '17'
+    }
+
+    dependencies {
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+            mavenBom "io.github.resilience4j:resilience4j-bom:${resilience4jVersion}"
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+}
