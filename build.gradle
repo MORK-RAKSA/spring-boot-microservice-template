@@ -1,7 +1,7 @@
 plugins{
     id 'java'
     id 'org.springframework.boot' version '3.5.0' apply false
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'io.spring.dependency-management' version '1.1.7' apply false
     id 'java-library'
 }
 
@@ -13,7 +13,7 @@ ext {
 
 allprojects {
     group = 'com.raksa.app'
-    version = '1.0.0'
+    version = "$version"
     repositories {
         mavenCentral()
     }
@@ -30,7 +30,44 @@ subprojects {
     }
 
     dependencies {
+
+//        implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+//        runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+//        runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+        implementation 'org.springframework.boot:spring-boot-starter-webflux'
+//        implementation 'org.springframework.boot:spring-boot-starter-validation'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//        implementation 'org.springframework.cloud:spring-cloud-starter-config'
+
+        implementation 'io.micrometer:micrometer-tracing'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        implementation 'com.fasterxml.jackson.core:jackson-databind'
+        implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+
+        //implementation 'javax.xml.bind:jaxb-api'
+        implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
+        implementation 'org.glassfish.jaxb:jaxb-runtime'
+
+        //Added
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        implementation 'org.springframework.boot:spring-boot-devtools'
+        runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+        runtimeOnly 'com.mysql:mysql-connector-j'
+        implementation 'com.h2database:h2:2.2.224'
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+        runtimeOnly 'org.postgresql:postgresql'
+
+        implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+        annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+
+//        implementation 'org.springframework.boot:spring-boot-starter-security'
     }
 
     dependencyManagement {
