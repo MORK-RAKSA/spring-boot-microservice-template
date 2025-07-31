@@ -5,13 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3395e46-f4da-4f54-9b77-8d2e15dbb60b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/constants/HttpStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/ResponseMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/DuplicateEntityException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/IllegalArgumentException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/InvalidRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/src/main/java/com/raksa/app/controllers/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/resources/img/spring-boot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/test/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -79,6 +108,7 @@
     "Gradle.micro-service:gateway [:gateway:com.raksa.app.GatewayApplication.main()].executor": "Run",
     "Gradle.micro-service:me [:me:com.raksa.app.MeApplication.main()].executor": "Run",
     "Gradle.micro-service:product-service [:product-service:com.raksa.app.ProductApplication.main()].executor": "Run",
+    "Gradle.micro-service:test [:test:com.raksa.app.TestApplication.main()].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -88,30 +118,31 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHELLCHECK.PATH": "C:\\Users\\raksa.mork\\AppData\\Roaming\\JetBrains\\IdeaIC2025.1\\plugins\\Shell Script\\shellcheck.exe",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/micro-service",
+    "last_opened_file_path": "D:/micro-service/core/src/main/resources",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "AtomSelectConfig"
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\micro-service\core\src\main\resources" />
       <recent name="D:\micro-service" />
       <recent name="D:\micro-service\discovery-service" />
       <recent name="D:\micro-service\gateway" />
       <recent name="D:\micro-service\product-service" />
-      <recent name="D:\micro-service\core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\micro-service\me\src\main\java" />
       <recent name="D:\micro-service\account-service\src\main\java\com.raksa.app" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.raksa.app.exception.exceptionHandle" />
       <recent name="com.raksa.app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MeApplication">
+  <component name="RunManager" selected="Application.GatewayApplication">
     <configuration name="DiscoveryServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.raksa.app.DiscoveryServiceApplication" />
       <module name="micro-service.discovery-service.main" />
@@ -138,9 +169,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.raksa.app.MeApplication" />
-      <module name="micro-service.me.main" />
+    <configuration name="ProductApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.raksa.app.ProductApplication" />
+      <module name="micro-service.product-service.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.raksa.app.*" />
@@ -151,9 +182,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.raksa.app.ProductApplication" />
-      <module name="micro-service.product-service.main" />
+    <configuration name="TestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.raksa.app.TestApplication" />
+      <module name="com.raksa.app.micro-service.test.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.raksa.app.*" />
@@ -175,7 +206,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MeApplication" />
+        <item itemvalue="Application.TestApplication" />
         <item itemvalue="Application.DiscoveryServiceApplication" />
         <item itemvalue="Application.GatewayApplication" />
         <item itemvalue="Application.ProductApplication" />

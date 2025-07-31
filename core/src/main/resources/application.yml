@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: core
+resilience:
+  failureRateThreshold: 50
+  waitDurationInOpenState: 20
+  slidingWindowSize: 10
+  minimumNumberOfCalls: 5
+  permittedNumberOfCallsInHalfOpenState: 3
+
+retry:
+  max-attempts: 3
+  wait-duration: 5000
+
+rate-limiter:
+  limit-for-period: 10
+  limit-refresh-period: 1
+  timeout-duration: 5000

@@ -5,3 +5,14 @@ plugins {
 jar {
     enabled = true
 }
+
+dependencies {
+    // Resilience4j dependencies
+    api 'io.github.resilience4j:resilience4j-spring-boot3'
+    api 'io.github.resilience4j:resilience4j-reactor'
+    api 'io.github.resilience4j:resilience4j-circuitbreaker'
+    api 'io.github.resilience4j:resilience4j-ratelimiter'
+    api 'io.github.resilience4j:resilience4j-retry'
+    api 'io.github.resilience4j:resilience4j-bulkhead'
+
+}
