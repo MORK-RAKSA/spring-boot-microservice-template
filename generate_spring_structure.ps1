@@ -17,23 +17,28 @@ $basePath = "$PWD\$moduleName"
 $javaBase = Join-Path $basePath "src\main\java\com\raksa\app"
 $templatesPath = Join-Path $basePath "src\main\resources\templates"
 $staticPath    = Join-Path $basePath "src\main\resources\static"
+$resourcesPath = Join-Path $basePath "src\main\resources"
 
 
 # Create directories
 $folders = @(
+    "$javaBase\caches",
     "$javaBase\config",
     "$javaBase\controllers",
     "$javaBase\dtos",
+    "$javaBase\dtos\requests",
+    "$javaBase\dtos\responses",
     "$javaBase\exceptions",
     "$javaBase\model",
-    "$javaBase\repo",
+    "$javaBase\repository",
     "$javaBase\services\lservices",
     "$javaBase\services\servicesImpl",
     "$javaBase\services\validation",
     "$javaBase\utils",
     "$javaBase\vo",
     "$templatesPath",
-    "$staticPath"
+    "$staticPath",
+    "$resourcesPath"
 
 )
 
@@ -45,16 +50,51 @@ foreach ($folder in $folders) {
 $settingsGradlePath = "$PWD\settings.gradle"
 $moduleEntry = "include '$moduleName'"
 
+# Add new route to gateway's application.yml
+$gatewayYmlPath = "$PWD\gateway\src\main\resources\application.yml"
+
+if (Test-Path $gatewayYmlPath) {
+    $routeBlock = @"
+        - id: $moduleName
+          uri: lb://$moduleName
+          predicates:
+            - Path=/api-app/v1.0.0/$moduleName/**
+
+"@
+    $appYmlLines = Get-Content $gatewayYmlPath
+
+    if ($appYmlLines -join "`n" -match "id:\s*$moduleName") {
+        Write-Host "`n[INFO] ----> Route for '$moduleName' already exists in Gateway. Skipping insertion."
+        return
+    }
+
+    $insertIndex = ($appYmlLines | Select-String -Pattern "routes:" -SimpleMatch).LineNumber
+
+    if ($insertIndex -gt 0) {
+        $before = $appYmlLines[0..$insertIndex]
+        $after = $appYmlLines[($insertIndex + 1)..($appYmlLines.Length - 1)]
+        $newYml = $before + $routeBlock + $after
+        $newYml | Set-Content -Path $gatewayYmlPath
+        Write-Host "`n`[SUCCESS] ==== Added route for '$moduleName' to Gateway"
+    } else {
+        Write-Host "`n`[ERROR] ----> 'routes:' section not found in Gateway application.yml. Add manually:"
+        Write-Host $routeBlock
+    }
+} else {
+    Write-Host "`n`[ERROR] ----> Gateway application.yml not found at expected path: $gatewayYmlPath"
+}
+
+
 if (Test-Path $settingsGradlePath) {
     $content = Get-Content $settingsGradlePath
     if ($content -notcontains $moduleEntry) {
         Add-Content -Path $settingsGradlePath -Value $moduleEntry
-        Write-Host "`n`==== Added '$moduleName' to settings.gradle"
+        Write-Host "`n`[SUCCESS] ==== Added '$moduleName' to settings.gradle"
     } else {
-        Write-Host "`n`==== '$moduleName' already included in settings.gradle"
+        Write-Host "`n`[ERROR] ----> '$moduleName' already included in settings.gradle"
     }
 } else {
-    Write-Host "`n`==== settings.gradle not found in root. Please create it manually and add: $moduleEntry"
+    Write-Host "`n`[ERROR] ----> settings.gradle not found in root. Please create it manually and add: $moduleEntry"
 }
 
 
@@ -81,7 +121,7 @@ server:
   port: 8080
 spring:
   application:
-    name: test
+    name: $moduleName
   cloud:
     discovery:
       enabled: true
@@ -96,6 +136,7 @@ $gradleFile = "$basePath\build.gradle"
 @"
 dependencies {
     implementation project(':core')
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 }
 "@ | Set-Content -Path $gradleFile
 
@@ -105,6 +146,6 @@ dependencies {
 New-Item -ItemType File -Path "$basePath\.gitignore" -Force | Out-Null
 
 Write-Host "`nProject structure for '$moduleName' created."
-Write-Host "`n`==== Package: com.raksa.app"
-Write-Host "`n`==== Application class: $applicationClass.java"
-Write-Host "`n`==== application.yml and build.gradle configured.`n` "
+Write-Host "`n`[SUCCESS] ==== Package: com.raksa.app"
+Write-Host "`n`[SUCCESS] ==== Application class: $applicationClass.java"
+Write-Host "`n`[SUCCESS] ==== application.yml and build.gradle configured.`n` "

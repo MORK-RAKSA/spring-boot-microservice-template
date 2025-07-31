@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3395e46-f4da-4f54-9b77-8d2e15dbb60b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/constants/HttpStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/ResponseMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/DuplicateEntityException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/IllegalArgumentException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/InvalidRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/exception/exceptionHandle/ResourceNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/src/main/java/com/raksa/app/controllers/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/utils/ApplicationContextCustomUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/utils/DataConverterUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" afterDir="false" />
@@ -26,13 +19,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/core/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/resources/img/spring-boot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/raksa/app/response/BaseResponse.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/test/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_spring_structure.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/generate_spring_structure.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generate_spring_structure.sh" beforeDir="false" afterPath="$PROJECT_DIR$/generate_spring_structure.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/build/resources/main/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/src/main/java/com/raksa/app/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/src/main/java/com/raksa/app/controllers/TestController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +99,7 @@
   "keyToString": {
     "Application.DiscoveryServiceApplication.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.micro-service:auth-service [:auth-service:com.raksa.app.AuthServiceApplication.main()].executor": "Run",
     "Gradle.micro-service:discovery-service [:discovery-service:com.raksa.app.DiscoveryServiceApplication.main()].executor": "Run",
     "Gradle.micro-service:gateway [:gateway:com.raksa.app.GatewayApplication.main()].executor": "Run",
     "Gradle.micro-service:me [:me:com.raksa.app.MeApplication.main()].executor": "Run",
@@ -138,11 +134,25 @@
       <recent name="D:\micro-service\account-service\src\main\java\com.raksa.app" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.raksa.app.utils" />
       <recent name="com.raksa.app.exception.exceptionHandle" />
       <recent name="com.raksa.app" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GatewayApplication">
+  <component name="RunManager" selected="Application.TestApplication">
+    <configuration name="AuthServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.raksa.app.AuthServiceApplication" />
+      <module name="micro-service.auth-service.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.raksa.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiscoveryServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.raksa.app.DiscoveryServiceApplication" />
       <module name="micro-service.discovery-service.main" />
@@ -206,6 +216,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AuthServiceApplication" />
         <item itemvalue="Application.TestApplication" />
         <item itemvalue="Application.DiscoveryServiceApplication" />
         <item itemvalue="Application.GatewayApplication" />

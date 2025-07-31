@@ -19,7 +19,12 @@ spring:
         - id: test-service
           uri: lb://test-service
           predicates:
-              - Path=/api-app/v1.0.0/test/**
+              - Path=/api-app/v1.0.0/test-service/**
+
+        - id: auth-service
+          uri: lb://test-service
+          predicates:
+            - Path=/api-app/v1.0.0/auth-service/**
   main:
     web-application-type: reactive
 

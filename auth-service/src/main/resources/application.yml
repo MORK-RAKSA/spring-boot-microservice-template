@@ -1,8 +1,8 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   application:
-    name: test-service
+    name: auth-service
   cloud:
     discovery:
       enabled: true

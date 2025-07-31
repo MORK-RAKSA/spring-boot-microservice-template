@@ -21,17 +21,22 @@ applicationClass="${classBase}Application"
 # Paths
 basePath="$modulePath"
 javaBase="$basePath/src/main/java/com/raksa/app"
-resourcesPath="$basePath/src/main/resources/templates"
-resourcesPath1="$basePath/src/main/resources/static"
+resourcesPath="$basePath/src/main/resources/"
+resourcesPath1="$basePath/src/main/resources/templates"
+resourcesPath2="$basePath/src/main/resources/static"
+gatewayYml="$basePath/gateway/src/main/resources/application.yml"
 
 # Create directories
 folders=(
+    "$javaBase/caches"
     "$javaBase/config"
     "$javaBase/controllers"
     "$javaBase/dtos"
+    "$javaBase/dtos/responses"
+    "$javaBase/dtos/requests"
     "$javaBase/exceptions"
     "$javaBase/model"
-    "$javaBase/repo"
+    "$javaBase/repository"
     "$javaBase/services/lservices"
     "$javaBase/services/servicesImpl"
     "$javaBase/services/validation"
@@ -39,6 +44,7 @@ folders=(
     "$javaBase/vo"
     "$resourcesPath"
     "$resourcesPath1"
+    "$resourcesPath2"
 )
 
 for folder in "${folders[@]}"; do
@@ -83,7 +89,7 @@ server:
   port: 8080
 spring:
   application:
-    name: test
+    name: $moduleName
   cloud:
     discovery:
       enabled: true
@@ -98,11 +104,44 @@ gradleFile="$basePath/build.gradle"
 cat > "$gradleFile" <<EOF
 dependencies {
     implementation project(':core')
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
 }
 EOF
 
 # Create empty .gitignore
 touch "$basePath/.gitignore"
+
+# === Add route to Gateway application.yml ===
+if [ -f "$gatewayYml" ]; then
+  if grep -q "routes:" "$gatewayYml"; then
+
+    # Check if route already exists
+    if grep -q "id: $moduleName" "$gatewayYml"; then
+      echo "==== Route for '$moduleName' already exists in Gateway. Skipping."
+    else
+      routeBlock="\
+        - id: $moduleName
+          uri: lb://$moduleName
+          predicates:
+            - Path=/api-app/v1.0.0/$moduleName/**"
+
+      # Insert route after "routes:"
+      awk -v route="$routeBlock" '
+        {print}
+        /routes:/ && !found {print route; found=1}
+      ' "$gatewayYml" > "$gatewayYml.tmp" && mv "$gatewayYml.tmp" "$gatewayYml"
+
+      echo "==== Added route for '$moduleName' to Gateway"
+    fi
+
+  else
+    echo "==== 'routes:' section not found in Gateway application.yml. Add manually:"
+    echo "$routeBlock"
+  fi
+else
+  echo "==== Gateway application.yml not found at: $gatewayYml"
+fi
+
 
 # Summary
 echo -e "\nProject structure for '$moduleName' created."
