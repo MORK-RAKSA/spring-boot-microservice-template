@@ -21,7 +21,8 @@ applicationClass="${classBase}Application"
 # Paths
 basePath="$modulePath"
 javaBase="$basePath/src/main/java/com/raksa/app"
-resourcesPath="$basePath/src/main/resources"
+resourcesPath="$basePath/src/main/resources/templates"
+resourcesPath1="$basePath/src/main/resources/static"
 
 # Create directories
 folders=(
@@ -37,6 +38,7 @@ folders=(
     "$javaBase/utils"
     "$javaBase/vo"
     "$resourcesPath"
+    "$resourcesPath1"
 )
 
 for folder in "${folders[@]}"; do

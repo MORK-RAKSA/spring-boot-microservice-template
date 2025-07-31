@@ -15,7 +15,9 @@ $applicationClass = "${classBase}Application"
 # Paths
 $basePath = "$PWD\$moduleName"
 $javaBase = Join-Path $basePath "src\main\java\com\raksa\app"
-$resourcesPath = "$basePath\src\main\resources"
+$templatesPath = Join-Path $basePath "src\main\resources\templates"
+$staticPath    = Join-Path $basePath "src\main\resources\static"
+
 
 # Create directories
 $folders = @(
@@ -30,7 +32,9 @@ $folders = @(
     "$javaBase\services\validation",
     "$javaBase\utils",
     "$javaBase\vo",
-    "$resourcesPath"
+    "$templatesPath",
+    "$staticPath"
+
 )
 
 foreach ($folder in $folders) {
