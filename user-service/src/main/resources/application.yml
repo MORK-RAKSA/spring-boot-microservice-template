@@ -1,0 +1,42 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: user-service
+  cloud:
+    discovery:
+      enabled: true
+  datasource:
+    url: jdbc:h2:file:C:\Users\raksa.mork\db\micro-service\testdb.db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  output:
+    ansi:
+      enabled: ALWAYS
+  h2:
+    console:
+      enabled: true
+      path: /h2-console/
+
+#springdoc:
+#  api-docs:
+#    path: /v3/api-docs
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    enabled: true
+#    try-it-out-enabled: true
+#    operations-sorter: method
+#    tags-sorter: alpha
+#    display-request-duration: true
+#    doc-expansion: none
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

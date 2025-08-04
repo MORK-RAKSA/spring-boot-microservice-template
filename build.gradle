@@ -52,6 +52,9 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0'
+//        implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.9'
+
+
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         implementation 'org.springframework.boot:spring-boot-devtools'
         runtimeOnly 'org.springframework.boot:spring-boot-devtools'
@@ -59,6 +62,7 @@ subprojects {
         implementation 'com.h2database:h2:2.2.224'
         implementation 'org.springframework.boot:spring-boot-starter-jdbc'
         runtimeOnly 'org.postgresql:postgresql'
+
 
         implementation 'org.mapstruct:mapstruct:1.5.5.Final'
         annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
@@ -76,5 +80,9 @@ subprojects {
             mavenBom "io.github.resilience4j:resilience4j-bom:${resilience4jVersion}"
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
         }
+    }
+
+    tasks.withType(JavaExec) {
+        jvmArgs += ["--add-opens", "java.base/java.lang=ALL-UNNAMED"]
     }
 }

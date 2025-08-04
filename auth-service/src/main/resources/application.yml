@@ -6,6 +6,15 @@ spring:
   cloud:
     discovery:
       enabled: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui/index.html
+
+
 eureka:
   client:
     service-url:
