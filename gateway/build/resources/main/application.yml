@@ -5,11 +5,11 @@ spring:
   application:
     name: api-gateway
 
-  main:
-    web-application-type: reactive
+#  main:
+#    web-application-type: reactive
 
-  webflux:
-    static-path-pattern: /**
+#  webflux:
+#    static-path-pattern: /**
 
   cloud:
     gateway:
@@ -47,16 +47,12 @@ springdoc:
     path: /swagger-ui.html
     enabled: true
     urls:
-
       - name: user-service
         url: /api-app/v1.0.0/user-service/v3/api-docs
-
       - name: product-service
         url: /api-app/v1.0.0/product-service/v3/api-docs
-
       - name: auth-service
         url: /api-app/v1.0.0/auth-service/v3/api-docs
-
     try-it-out-enabled: true
     operations-sorter: method
     tags-sorter: alpha
@@ -67,3 +63,16 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, info, health, metrics, loggers, httptrace
+  endpoint:
+    health:
+      show-details: always
+  zipkin:
+    tracing:
+      endpoint: none
+      enabled: false
