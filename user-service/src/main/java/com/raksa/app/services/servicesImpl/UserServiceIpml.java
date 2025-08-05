@@ -10,8 +10,7 @@ import com.raksa.app.mapper.UserMapper;
 import com.raksa.app.model.UserEntity;
 import com.raksa.app.repository.UserRepository;
 import com.raksa.app.services.Iservices.UserService;
-import com.raksa.app.utils.DataConverterUtils;
-import com.raksa.app.utils.LoggerJsonFormat;
+import com.raksa.app.utils.LoggerFormaterUtils;
 import com.raksa.app.utils.PaginationUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +32,7 @@ public class UserServiceIpml implements UserService {
     public UserResponseDto createUser(UserRequestDto requestDto) {
         UserEntity entity = userMapper.toEntity(requestDto);
 
-        LoggerJsonFormat.prettyLoggerJson(log,"Request Dto Service:", requestDto );
+        LoggerFormaterUtils.convertDtoToJson("Request Dto Service", requestDto );
 
         if (userRepository.existsByUsername(requestDto.getUsername())){
             throw new DuplicateEntityException(
@@ -70,4 +69,9 @@ public class UserServiceIpml implements UserService {
         return PaginationUtils.toPaginationResponse(responses);
     }
 
+    @Override
+    public void deleteAllUsers() {
+        userRepository.deleteAll();
+        log.info("All users have been deleted successfully.");
+    }
 }

@@ -5,8 +5,8 @@ spring:
   application:
     name: api-gateway
 
-  main:
-    web-application-type: reactive
+#  main:
+#    web-application-type: reactive
 
 #  webflux:
 #    static-path-pattern: /**
@@ -23,21 +23,21 @@ spring:
           predicates:
             - Path=/api-app/v1.0.0/user-service/**
           filters:
-            - StripPrefix=0
+            - StripPrefix=3
 
         - id: product-service
           uri: lb://product-service
           predicates:
             - Path=/api-app/v1.0.0/product-service/**
           filters:
-            - StripPrefix=0
+            - StripPrefix=3
 
         - id: auth-service
           uri: lb://auth-service
           predicates:
             - Path=/api-app/v1.0.0/auth-service/**
           filters:
-            - StripPrefix=0
+            - StripPrefix=3
 
 springdoc:
   api-docs:

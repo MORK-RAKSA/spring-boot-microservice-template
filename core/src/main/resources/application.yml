@@ -6,8 +6,8 @@ spring:
       root: INFO
       org.springframework: WARN
     pattern:
-      console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){cyan} %clr([%thread]){magenta} %clr([%X{traceId}]){green} %clr([%-5level]){red} %clr([%logger{36}]){cyan} - %clr(%msg){cyan}%n"
-      file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{traceId}] [%-5level] [%logger{36}] - %msg%n"
+      console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [trace=%X{traceId:-} span=%X{spanId:-}] [%-5level] [%logger{36}] - %msg%n"
+      file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [trace=%X{traceId:-} span=%X{spanId:-}] [%-5level] [%logger{36}] - %msg%n"
     file:
       name: logs/application.log
       max-size: 10MB

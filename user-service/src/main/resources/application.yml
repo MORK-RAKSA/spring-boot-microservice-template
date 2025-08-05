@@ -24,17 +24,16 @@ spring:
       enabled: true
       path: /h2-console/
 
-#springdoc:
-#  api-docs:
-#    path: /v3/api-docs
-#  swagger-ui:
-#    path: /swagger-ui.html
-#    enabled: true
-#    try-it-out-enabled: true
-#    operations-sorter: method
-#    tags-sorter: alpha
-#    display-request-duration: true
-#    doc-expansion: none
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    try-it-out-enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+    display-request-duration: true
+    doc-expansion: none
 
 eureka:
   client:

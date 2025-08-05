@@ -6,10 +6,9 @@ import com.raksa.app.exception.ResponseMessage;
 import com.raksa.app.services.servicesImpl.UserServiceIpml;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -21,6 +20,17 @@ public class UserController {
     @PostMapping("/create-users")
     public ResponseMessage<UserResponseDto> createUser(@RequestBody UserRequestDto requestDto){
         UserResponseDto responseDto = userService.createUser(requestDto);
-        return ResponseMessage.success("User Created Successfully", responseDto);
+        return ResponseMessage.success("User Created Successfully.", responseDto);
+    }
+
+    @GetMapping("/get-all-users")
+    public ResponseMessage<List<UserResponseDto>> getAllUsers() {
+        return ResponseMessage.success("Fetch Users Successfully.", userService.getAllUser());
+    }
+
+    @PostMapping("/delete-all-users")
+    public ResponseMessage<Void> deleteAllUsers() {
+        userService.deleteAllUsers();
+        return ResponseMessage.success("All Users Deleted Successfully.");
     }
 }
