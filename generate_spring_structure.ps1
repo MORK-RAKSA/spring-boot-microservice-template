@@ -61,7 +61,6 @@ if (Test-Path $gatewayYmlPath) {
             - Path=/api-app/v1.0.0/$moduleName/**
           filters:
             - StripPrefix=3
-
 "@
     $appYmlLines = Get-Content $gatewayYmlPath
 
