@@ -7,6 +7,7 @@ import com.raksa.app.services.servicesImpl.UserServiceIpml;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
 public class UserController {
     private final UserServiceIpml userService;
 
-    @PostMapping("/create-users")
+    @PostMapping("/create-user")
     public ResponseMessage<UserResponseDto> createUser(@RequestBody UserRequestDto requestDto){
         UserResponseDto responseDto = userService.createUser(requestDto);
         return ResponseMessage.success("User Created Successfully.", responseDto);
@@ -32,5 +33,10 @@ public class UserController {
     public ResponseMessage<Void> deleteAllUsers() {
         userService.deleteAllUsers();
         return ResponseMessage.success("All Users Deleted Successfully.");
+    }
+
+    @GetMapping("/get-product-testing")
+    public Mono<ResponseMessage<String>> getProductTesting() {
+        return userService.getProductTesting();
     }
 }

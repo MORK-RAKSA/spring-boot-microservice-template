@@ -15,11 +15,11 @@ public class SwaggerConfig {
 
     @Bean
     public OpenAPI customOpenAPI() {
-//        Server gatewayServer = new Server();
-//        gatewayServer.setUrl("/api-app/v1.0.0/user-service/");
+        Server gatewayServer = new Server();
+        gatewayServer.setUrl("/api-app/v1.0.0/user-service/");
 
         return new OpenAPI()
-//                .addServersItem(gatewayServer)
+                .addServersItem(gatewayServer)
                 .info(new Info()
                         .title("Pretty little baby")
                         .version("1.0.0"));

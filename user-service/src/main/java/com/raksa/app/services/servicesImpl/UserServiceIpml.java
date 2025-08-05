@@ -4,6 +4,7 @@ import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.PaginationResponse;
 import com.raksa.app.dtos.responses.UserResponseDto;
 import com.raksa.app.enumz.Role;
+import com.raksa.app.exception.ResponseMessage;
 import com.raksa.app.exception.exceptionHandle.DuplicateEntityException;
 import com.raksa.app.exception.exceptionHandle.ResourceNotFoundException;
 import com.raksa.app.mapper.UserMapper;
@@ -14,10 +15,13 @@ import com.raksa.app.utils.LoggerFormaterUtils;
 import com.raksa.app.utils.PaginationUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 @Slf4j
@@ -27,6 +31,15 @@ public class UserServiceIpml implements UserService {
 
     private final UserMapper userMapper;
     private final UserRepository userRepository;
+
+    private final WebClient productTesting;
+
+    public Mono<ResponseMessage<String>> getProductTesting() {
+        return productTesting.get()
+                .uri("/test")
+                .retrieve()
+                .bodyToMono(new ParameterizedTypeReference<ResponseMessage<String>>() {});
+    }
 
     @Override
     public UserResponseDto createUser(UserRequestDto requestDto) {

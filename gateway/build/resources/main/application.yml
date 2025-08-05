@@ -63,3 +63,16 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, info, health, metrics, loggers, httptrace
+  endpoint:
+    health:
+      show-details: always
+  zipkin:
+    tracing:
+      endpoint: none
+      enabled: false
