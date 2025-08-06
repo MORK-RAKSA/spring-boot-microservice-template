@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3395e46-f4da-4f54-9b77-8d2e15dbb60b" name="Changes" comment="Merge branch 'main' of https://github.com/MORK-RAKSA/spring-boot-microservice-template into fix-swagger-ui&#10;&#10;# Conflicts:&#10;#&#9;.gradle/8.14.2/executionHistory/executionHistory.bin&#10;#&#9;.gradle/8.14.2/executionHistory/executionHistory.lock&#10;#&#9;.gradle/8.14.2/fileHashes/fileHashes.bin&#10;#&#9;.gradle/8.14.2/fileHashes/fileHashes.lock&#10;#&#9;.gradle/buildOutputCleanup/buildOutputCleanup.lock&#10;#&#9;.gradle/file-system.probe&#10;#&#9;.idea/workspace.xml&#10;#&#9;gateway/build/resources/main/application.yml&#10;#&#9;gateway/src/main/resources/application.yml">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/raksa/app/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/raksa/app/mapper/UserMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +92,8 @@
     "Gradle.micro-service:product-service [:product-service:com.raksa.app.ProductApplication.main()].executor": "Run",
     "Gradle.micro-service:test [:test:com.raksa.app.TestApplication.main()].executor": "Run",
     "Gradle.micro-service:user-service [:user-service:com.raksa.app.UserServiceApplication.main()].executor": "Run",
+    "Gradle.spring-boot-microservice-template:auth-service [:auth-service:com.raksa.app.AuthServiceApplication.main()].executor": "Run",
+    "Gradle.spring-boot-microservice-template:discovery-service [:discovery-service:com.raksa.app.DiscoveryServiceApplication.main()].executor": "Run",
     "Gradle.spring-boot-microservice-template:product-service [:product-service:com.raksa.app.ProductApplication.main()].executor": "Run",
     "Gradle.spring-boot-microservice-template:user-service [:user-service:com.raksa.app.UserServiceApplication.main()].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -113,7 +104,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHELLCHECK.PATH": "C:\\Users\\raksa.mork\\AppData\\Roaming\\JetBrains\\IdeaIC2025.1\\plugins\\Shell Script\\shellcheck.exe",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "update-branch",
     "last_opened_file_path": "/Users/macbook/Documents/apps/spring-boot-microservice-template",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -146,18 +137,6 @@
       <set>
         <option value="Application" />
       </set>
-    </option>
-    <option name="hiddenConfigurations">
-      <map>
-        <entry key="Application">
-          <value>
-            <set>
-              <option value="AuthServiceApplication" />
-              <option value="TestApplication" />
-            </set>
-          </value>
-        </entry>
-      </map>
     </option>
   </component>
   <component name="RunManager" selected="Application.DiscoveryServiceApplication">
