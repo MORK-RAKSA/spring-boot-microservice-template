@@ -29,7 +29,15 @@ public class WebClientConfig {
     @Bean
     public WebClient productTesting(HttpClient httpClient) {
         return WebClient.builder()
-                .baseUrl("http://localhost:8080/api-app/v1.0.0/product-service")
+                .baseUrl("/api-app/v1.0.0/product-service")
+                .clientConnector(new ReactorClientHttpConnector(httpClient))
+                .build();
+    }
+
+    @Bean
+    public WebClient userServiceWebClient(HttpClient httpClient) {
+        return WebClient.builder()
+                .baseUrl("http://localhost:8080/api-app/v1.0.0/user-service")
                 .clientConnector(new ReactorClientHttpConnector(httpClient))
                 .build();
     }
