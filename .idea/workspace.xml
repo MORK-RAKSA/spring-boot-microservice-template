@@ -160,7 +160,7 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.API Gateway">
+  <component name="RunManager" selected="Application.DiscoveryServiceApplication">
     <configuration name="API Gateway" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
       <option name="MAIN_CLASS_NAME" value="com.raksa.app.GatewayApplication" />
@@ -182,9 +182,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.raksa.app.ProductApplication" />
-      <module name="micro-service.product-service.main" />
+    <configuration name="DiscoveryServiceApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.raksa.app.DiscoveryServiceApplication" />
+      <module name="micro-service.discovery-service.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.raksa.app.*" />
@@ -195,9 +195,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.raksa.app.TestApplication" />
-      <module name="micro-service.test.main" />
+    <configuration name="ProductApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.raksa.app.ProductApplication" />
+      <module name="micro-service.product-service.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.raksa.app.*" />
@@ -243,19 +243,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.API Gateway" />
+      <item itemvalue="Application.DiscoveryServiceApplication" />
       <item itemvalue="Application.AuthServiceApplication" />
       <item itemvalue="Application.ProductApplication" />
-      <item itemvalue="Application.TestApplication" />
       <item itemvalue="Application.UserServiceApplication" />
       <item itemvalue="Gradle.micro-service" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DiscoveryServiceApplication" />
         <item itemvalue="Gradle.micro-service" />
         <item itemvalue="Application.ProductApplication" />
         <item itemvalue="Application.UserServiceApplication" />
         <item itemvalue="Application.AuthServiceApplication" />
-        <item itemvalue="Application.TestApplication" />
       </list>
     </recent_temporary>
   </component>
