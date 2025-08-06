@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d3395e46-f4da-4f54-9b77-8d2e15dbb60b" name="Changes" comment="Merge branch 'main' of https://github.com/MORK-RAKSA/spring-boot-microservice-template into fix-swagger-ui&#10;&#10;# Conflicts:&#10;#&#9;.gradle/8.14.2/executionHistory/executionHistory.bin&#10;#&#9;.gradle/8.14.2/executionHistory/executionHistory.lock&#10;#&#9;.gradle/8.14.2/fileHashes/fileHashes.bin&#10;#&#9;.gradle/8.14.2/fileHashes/fileHashes.lock&#10;#&#9;.gradle/buildOutputCleanup/buildOutputCleanup.lock&#10;#&#9;.gradle/file-system.probe&#10;#&#9;.idea/workspace.xml&#10;#&#9;gateway/build/resources/main/application.yml&#10;#&#9;gateway/src/main/resources/application.yml">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/core/build/tmp/jar/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/build/resources/main/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/com/raksa/app/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/com/raksa/app/mapper/UserMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +34,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -75,35 +88,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service:auth-service [:auth-service:com.raksa.app.AuthServiceApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service:discovery-service [:discovery-service:com.raksa.app.DiscoveryServiceApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service:gateway [:gateway:com.raksa.app.GatewayApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service:me [:me:com.raksa.app.MeApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service:product-service [:product-service:com.raksa.app.ProductApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service:test [:test:com.raksa.app.TestApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.micro-service:user-service [:user-service:com.raksa.app.UserServiceApplication.main()].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\raksa.mork\\AppData\\Roaming\\JetBrains\\IdeaIC2025.1\\plugins\\Shell Script\\shellcheck.exe&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/micro-service/user-service/src/main/java/com/raksa/app/config&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.API Gateway.executor": "Run",
+    "Application.DiscoveryServiceApplication.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.Build spring-boot-microservice-template.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.micro-service.executor": "Run",
+    "Gradle.micro-service:auth-service [:auth-service:com.raksa.app.AuthServiceApplication.main()].executor": "Run",
+    "Gradle.micro-service:discovery-service [:discovery-service:com.raksa.app.DiscoveryServiceApplication.main()].executor": "Run",
+    "Gradle.micro-service:gateway [:gateway:com.raksa.app.GatewayApplication.main()].executor": "Run",
+    "Gradle.micro-service:me [:me:com.raksa.app.MeApplication.main()].executor": "Run",
+    "Gradle.micro-service:product-service [:product-service:com.raksa.app.ProductApplication.main()].executor": "Run",
+    "Gradle.micro-service:test [:test:com.raksa.app.TestApplication.main()].executor": "Run",
+    "Gradle.micro-service:user-service [:user-service:com.raksa.app.UserServiceApplication.main()].executor": "Run",
+    "Gradle.spring-boot-microservice-template:product-service [:product-service:com.raksa.app.ProductApplication.main()].executor": "Run",
+    "Gradle.spring-boot-microservice-template:user-service [:user-service:com.raksa.app.UserServiceApplication.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHELLCHECK.PATH": "C:\\Users\\raksa.mork\\AppData\\Roaming\\JetBrains\\IdeaIC2025.1\\plugins\\Shell Script\\shellcheck.exe",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/macbook/Documents/apps/spring-boot-microservice-template",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\micro-service\user-service\src\main\java\com\raksa\app\config" />
@@ -143,10 +160,9 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ProductApplication">
+  <component name="RunManager" selected="Application.API Gateway">
     <configuration name="API Gateway" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.raksa.app.GatewayApplication" />
       <module name="micro-service.gateway.main" />
       <method v="2">
@@ -181,7 +197,7 @@
     </configuration>
     <configuration name="TestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.raksa.app.TestApplication" />
-      <module name="com.raksa.app.micro-service.test.main" />
+      <module name="micro-service.test.main" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.raksa.app.*" />
@@ -223,15 +239,6 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
       <method v="2" />
     </configuration>
     <list>
