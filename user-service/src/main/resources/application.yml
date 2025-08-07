@@ -7,7 +7,7 @@ spring:
     discovery:
       enabled: true
   datasource:
-    url: jdbc:h2:file:C:\Users\raksa.mork\db\micro-service\testdb.db
+    url: jdbc:h2:file:/Users/macbook/Documents/apps/spring-boot-microservice-template/testdb.db
     driver-class-name: org.h2.Driver
     username: sa
     password:

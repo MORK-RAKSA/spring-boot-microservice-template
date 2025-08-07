@@ -32,8 +32,8 @@ public class SecurityConfig {
 //                        .pathMatchers("").authenticated()
                     .anyExchange().permitAll()
                 )
-                .oauth2ResourceServer()
-                .jwt();
+                .oauth2ResourceServer(oauth2-> oauth2
+                        .jwt(Customizer.withDefaults()));
         log.info("Security configuration initialized successfully.");
         return http.build();
     }

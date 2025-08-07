@@ -8,7 +8,7 @@ import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
 @Configuration
 public class JwtConfig {
 
-    private static final String SECRET_KEY = "verySecretKey";
+    private static final String SECRET_KEY = "changeMeChangeMeChangeMeChangeMe123";
 
     @Bean
     public ReactiveJwtDecoder jwtDecoder() {
