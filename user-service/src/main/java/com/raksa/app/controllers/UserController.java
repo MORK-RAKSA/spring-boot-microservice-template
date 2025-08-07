@@ -3,7 +3,7 @@ package com.raksa.app.controllers;
 import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.UserResponseDto;
 import com.raksa.app.exception.ResponseMessage;
-import com.raksa.app.services.servicesImpl.UserServiceIpml;
+import com.raksa.app.services.servicesImpl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping
 public class UserController {
-    private final UserServiceIpml userService;
+    private final UserServiceImpl userService;
 
     @PostMapping("/create-user")
     public ResponseMessage<UserResponseDto> createUser(@RequestBody UserRequestDto requestDto){
@@ -33,6 +33,12 @@ public class UserController {
     public ResponseMessage<Void> deleteAllUsers() {
         userService.deleteAllUsers();
         return ResponseMessage.success("All Users Deleted Successfully.");
+    }
+
+    @GetMapping("/get-user-by-id")
+    public ResponseMessage<UserResponseDto> getUserById(@RequestParam String id) {
+        UserResponseDto responseDto = userService.getUserById(id);
+        return ResponseMessage.success("Fetch User Successfully.", responseDto);
     }
 
     @GetMapping("/get-product-testing")

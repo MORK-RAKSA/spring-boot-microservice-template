@@ -1,5 +1,13 @@
 HELP.md
+.idea
 .gradle
+.vscode
+# If sharing select configs, remove them from .gitignore
+!.idea/codeStyles/
+!.vscode/settings.json
+!.vscode/extensions.json
+
+
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/

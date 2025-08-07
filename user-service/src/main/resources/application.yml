@@ -7,7 +7,7 @@ spring:
     discovery:
       enabled: true
   datasource:
-    url: jdbc:h2:file:C:\Users\raksa.mork\db\micro-service\testdb.db
+    url: jdbc:h2:file:D:\micro-service\testdb.db
     driver-class-name: org.h2.Driver
     username: sa
     password:
@@ -19,10 +19,12 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
-  h2:
-    console:
-      enabled: true
-      path: /h2-console/
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          secret-key: changeMeChangeMeChangeMeChangeMe123
+#          jwk-set-uri: http://auth-service:8081/.well-known/jwks.json
 
 springdoc:
   api-docs:

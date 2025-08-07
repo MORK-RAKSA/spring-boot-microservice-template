@@ -5,8 +5,9 @@ import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+//import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import reactor.netty.http.client.HttpClient;
 
 import java.time.Duration;
@@ -26,12 +27,30 @@ public class WebClientConfig {
                 );
     }
 
+//    @Bean
+//    public WebClient webClient (){
+//        return WebClient.builder()
+//                .filter((request, next) -> {
+//                   String token = null;
+//                   var authentication = SecurityContextHolder.getContext().getAuthentication();
+//                   if(authentication instanceof JwtAuthenticationToken jwtToken) {
+//                       token = jwtToken.getToken().getTokenValue();
+//                   }
+//
+//                   if (token != null) {
+//                       var filteredRequest = org.springframework.web.reactive.function.client.ClientRequest.from(request)
+//                               .header("Authorization", "Bearer " + token)
+//                               .build();
+//                       return next.exchange(filteredRequest);
+//                   }
+//                   return next.exchange(request);
+//                })
+//                .build();
+//    }
+
     @Bean
-    public WebClient productTesting(HttpClient httpClient) {
-        return WebClient.builder()
-                .baseUrl("http://localhost:8080/api-app/v1.0.0/product-service")
-                .clientConnector(new ReactorClientHttpConnector(httpClient))
-                .build();
+    public WebClient webClient(){
+        return WebClient.builder().build();
     }
 
 }

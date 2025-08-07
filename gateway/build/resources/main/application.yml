@@ -38,12 +38,19 @@ spring:
             - Path=/api-app/v1.0.0/auth-service/**
           filters:
             - StripPrefix=3
+  h2:
+    console:
+      enabled: true
+      path: /h2-console/
 
 springdoc:
   api-docs:
     path: /v3/api-docs
     enabled: true
   swagger-ui:
+    oauth:
+      use-basic-authentication-with-access-code-grant: false
+    persist-authorization: true
     path: /swagger-ui.html
     enabled: true
     urls:
@@ -76,7 +83,3 @@ management:
   endpoint:
     health:
       show-details: always
-  zipkin:
-    tracing:
-      endpoint: none
-      enabled: false

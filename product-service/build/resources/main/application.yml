@@ -6,6 +6,12 @@ spring:
   cloud:
     discovery:
       enabled: true
+  oauth2:
+    resourceserver:
+      jwt:
+        secret-key: changeMeChangeMeChangeMeChangeMe123
+#        jwk-set-uri: http://auth-service:8081/.well-known/jwks.json
+
 eureka:
   client:
     service-url:
