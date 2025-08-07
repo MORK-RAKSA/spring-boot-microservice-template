@@ -31,45 +31,44 @@ subprojects {
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-webflux'
-//        implementation 'org.springframework.boot:spring-boot-starter-validation'
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//        implementation 'org.springframework.cloud:spring-cloud-starter-config'
-
-        implementation 'io.micrometer:micrometer-tracing'
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive' // For Redis (reactive, modern)
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        implementation 'io.micrometer:micrometer-tracing'
 
-        compileOnly 'org.projectlombok:lombok'
-        annotationProcessor 'org.projectlombok:lombok'
-
-        implementation 'com.fasterxml.jackson.core:jackson-databind'
-        implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
-
-        //implementation 'javax.xml.bind:jaxb-api'
-        implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
-        implementation 'org.glassfish.jaxb:jaxb-runtime'
-
-        //Added
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
         implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0'
-//        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9'
-//        implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.9'
-//        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
 
-        runtimeOnly 'com.mysql:mysql-connector-j'
-        implementation 'com.h2database:h2:2.2.224'
-        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-        runtimeOnly 'org.postgresql:postgresql'
-
-
+        // MapStruct for mapping DTOs
         implementation 'org.mapstruct:mapstruct:1.5.5.Final'
         annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
-        // Security
-//        implementation 'org.springframework.boot:spring-boot-starter-security'
-        implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
-        runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
-        runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+        // Lombok for less boilerplate
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+
+        // JSON/XML serialization
+        implementation 'com.fasterxml.jackson.core:jackson-databind'
+        implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+        implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.2'
+        implementation 'org.glassfish.jaxb:jaxb-runtime'
+
+        // JPA and JDBC (if you have RDBMS; remove if you only use NoSQL)
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+        // DB Drivers (uncomment only the ones you actually use)
+        runtimeOnly 'com.mysql:mysql-connector-j'
+        runtimeOnly 'org.postgresql:postgresql'
+        implementation 'com.h2database:h2:2.2.224'
+
+        // Test dependencies
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        //Jwts
+        implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+        runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+        runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
     }
+
 
     dependencyManagement {
         imports {

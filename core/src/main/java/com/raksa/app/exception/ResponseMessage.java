@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 
+import java.time.LocalDateTime;
+
 @Slf4j
 @Data
 @NoArgsConstructor
@@ -14,6 +16,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseMessage<T> {
+    private String timestamp;
     private String statusCode;
     private String message;
     private String code;
@@ -24,6 +27,7 @@ public class ResponseMessage<T> {
 
     public static <T> ResponseMessage<T> error(String statusCode, String message, String code, ServerHttpRequest request){
         return ResponseMessage.<T>builder()
+                .timestamp(LocalDateTime.now().toString())
                 .statusCode(statusCode)
                 .code(code)
                 .message(message)
@@ -34,6 +38,7 @@ public class ResponseMessage<T> {
 
     public static <T> ResponseMessage<T> success(String message,T data){
         return ResponseMessage.<T>builder()
+                .timestamp(LocalDateTime.now().toString())
                 .statusCode(HttpStatus.SUCCESSFULLY)
                 .code("SUC200")
                 .message(message)
@@ -44,6 +49,7 @@ public class ResponseMessage<T> {
 
     public static <T> ResponseMessage<T> success(T data){
         return ResponseMessage.<T>builder()
+                .timestamp(LocalDateTime.now().toString())
                 .statusCode(HttpStatus.SUCCESSFULLY)
                 .code("SUC200")
                 .message("Successfully")
@@ -54,6 +60,7 @@ public class ResponseMessage<T> {
 
     public static <T> ResponseMessage<T> success(String message){
         return ResponseMessage.<T>builder()
+                .timestamp(LocalDateTime.now().toString())
                 .statusCode(HttpStatus.SUCCESSFULLY)
                 .code("SUC200")
                 .message(message)

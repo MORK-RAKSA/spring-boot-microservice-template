@@ -35,6 +35,12 @@ public class UserController {
         return ResponseMessage.success("All Users Deleted Successfully.");
     }
 
+    @GetMapping("/get-user-by-id/{id}")
+    public ResponseMessage<UserResponseDto> getUserById(@PathVariable String id) {
+        UserResponseDto responseDto = userService.getUserById(id);
+        return ResponseMessage.success("Fetch User Successfully.", responseDto);
+    }
+
     @GetMapping("/get-product-testing")
     public Mono<ResponseMessage<String>> getProductTesting() {
         return userService.getProductTesting();

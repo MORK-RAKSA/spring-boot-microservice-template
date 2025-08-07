@@ -9,6 +9,8 @@ jar {
 dependencies {
     implementation 'io.micrometer:micrometer-tracing-bridge-brave'
     implementation 'io.zipkin.reporter2:zipkin-reporter-brave'
+//    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
 
 //    // Resilience4j dependencies
 //    api 'io.github.resilience4j:resilience4j-spring-boot3'

@@ -1,5 +1,6 @@
 package com.raksa.app.services.servicesImpl;
 
+import com.raksa.app.config.SecurityConfig;
 import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.PaginationResponse;
 import com.raksa.app.dtos.responses.UserResponseDto;
@@ -19,6 +20,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -31,7 +33,7 @@ public class UserServiceIpml implements UserService {
 
     private final UserMapper userMapper;
     private final UserRepository userRepository;
-
+    private final BCryptPasswordEncoder passwordEncoder;
     private final WebClient productTesting;
 
     public Mono<ResponseMessage<String>> getProductTesting() {
@@ -53,7 +55,8 @@ public class UserServiceIpml implements UserService {
             );
         }
 
-        entity.setCreatedBy(Role.ADMIN.toString());
+        entity.setPassword(passwordEncoder.encode(requestDto.getPassword()));
+        entity.setCreatedBy("SYSTEM");
 
         UserEntity saved = userRepository.save(entity);
         return userMapper.toResponseDto(saved);

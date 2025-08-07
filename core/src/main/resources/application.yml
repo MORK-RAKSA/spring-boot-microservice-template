@@ -12,6 +12,12 @@ spring:
       name: logs/application.log
       max-size: 10MB
       max-history: 10
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          secret-key: changeMeChangeMeChangeMeChangeMe123
+  #          jwk-set-uri: http://auth-service:8081/.well-known/jwks.json
 
 resilience:
   failureRateThreshold: 50
