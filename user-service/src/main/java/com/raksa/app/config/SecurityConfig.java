@@ -9,6 +9,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 
 @Configuration
 public class SecurityConfig {
+
     /**
      * Password encoder bean for encoding passwords.
      * This uses BCrypt hashing algorithm to securely hash passwords.
@@ -30,7 +31,10 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/v3/api-docs",
                                 "/webjars/**",
-                                "/login"
+                                "/login",
+                                "/get-all-users",
+                                "/api-app/v1.0.0/user-service/**",
+                                "/get-user-by-id"
                         ).permitAll()
                         .anyExchange().authenticated()
                 )

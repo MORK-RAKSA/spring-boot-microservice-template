@@ -20,9 +20,9 @@ public class ResponseMessage<T> {
     private String statusCode;
     private String message;
     private String code;
+    private T data;
     private String traceId;
     private String pathURI;
-    private T data;
 
 
     public static <T> ResponseMessage<T> error(String statusCode, String message, String code, ServerHttpRequest request){

@@ -83,7 +83,3 @@ management:
   endpoint:
     health:
       show-details: always
-  zipkin:
-    tracing:
-      endpoint: none
-      enabled: false

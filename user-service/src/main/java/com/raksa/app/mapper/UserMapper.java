@@ -4,12 +4,9 @@ import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.UserResponseDto;
 import com.raksa.app.model.UserEntity;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 
 @Mapper(
-        componentModel = "spring",
-        unmappedTargetPolicy = ReportingPolicy.IGNORE,
-        unmappedSourcePolicy = ReportingPolicy.IGNORE
+        componentModel = "spring"
 )
 public interface UserMapper {
 

@@ -1,5 +1,7 @@
 package com.raksa.app.services.servicesImpl;
 
+import com.raksa.app.dtos.requests.UserRequestDto;
+import com.raksa.app.dtos.responses.JwtTokenResponseDto;
 import com.raksa.app.dtos.responses.UserResponseDto;
 import com.raksa.app.exception.ResponseMessage;
 import lombok.RequiredArgsConstructor;
@@ -24,8 +26,19 @@ public class AuthServiceImpl {
 
     public Mono<ResponseMessage<UserResponseDto>> getUserById(String id) {
         return userServiceWebClient.get()
-                .uri("/get-user-by-id/{id}",id)
+                .uri("/get-user-by-id?id=",id)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<ResponseMessage<UserResponseDto>>() {});
     }
+
+//
+//    public Mono<ResponseMessage<String>> login(UserRequestDto requestDto){
+//
+//        return userServiceWebClient.post()
+//                .uri("/login")
+//                .bodyValue(requestDto)
+//                .retrieve()
+//                .bodyToMono(new ParameterizedTypeReference<ResponseMessage<String>>() {})
+//                .map(response -> ResponseMessage.success("Login successful", response.getData()));
+//    }
 }

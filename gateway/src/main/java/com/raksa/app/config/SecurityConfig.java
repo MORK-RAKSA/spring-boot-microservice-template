@@ -27,7 +27,8 @@ public class SecurityConfig {
                                 "/swagger-ui.html",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
-                                "/webjars/**"
+                                "/webjars/**",
+                                "/login"
                         ).permitAll()
 //                        .pathMatchers("").authenticated()
                     .anyExchange().permitAll()
