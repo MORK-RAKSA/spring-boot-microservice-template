@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseMessage<T> {
-    private LocalDateTime timestamp = LocalDateTime.now();
+    private String timestamp;
     private String statusCode;
     private String message;
     private String code;

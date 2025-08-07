@@ -34,7 +34,6 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive' // For Redis (reactive, modern)
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'io.micrometer:micrometer-tracing'
-        implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
         implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0'
 
