@@ -1,17 +1,13 @@
 package com.raksa.app.controllers;
 
-import com.raksa.app.client.UserServiceClient;
 import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.JwtTokenResponseDto;
-import com.raksa.app.dtos.responses.UserResponseDto;
+import com.raksa.app.dtos.responses.userDto.UserResponseDto;
 import com.raksa.app.exception.ResponseMessage;
 import com.raksa.app.services.servicesImpl.AuthServiceImpl;
-import com.raksa.app.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
 import java.util.List;

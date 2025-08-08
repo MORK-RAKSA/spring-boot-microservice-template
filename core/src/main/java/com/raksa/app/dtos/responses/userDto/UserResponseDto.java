@@ -1,4 +1,4 @@
-package com.raksa.app.dtos.responses;
+package com.raksa.app.dtos.responses.userDto;
 
 import com.raksa.app.enumz.Role;
 import lombok.Data;
@@ -7,8 +7,10 @@ import lombok.Data;
 public class UserResponseDto {
 
     private String id;
+
     private String username;
+
     private String password;
-//    private String email;
+
     private Role role;
 }

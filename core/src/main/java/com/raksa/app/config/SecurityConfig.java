@@ -13,40 +13,30 @@
 //@Slf4j
 //@Configuration
 //@EnableWebFluxSecurity
-//@RequiredArgsConstructor
-//public class SecurityConfig {
+//public class SecurityConfig{
 //
-//    /**
-//     * Password encoder bean for encoding passwords.
-//     * This uses BCrypt hashing algorithm to securely hash passwords.
-//     *
-//     * @return BCryptPasswordEncoder instance
-//     */
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder(){
-//        return new BCryptPasswordEncoder();
-//    }
+////    @Bean
+////    public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) throws Exception{
+////        http
+////                .csrf(ServerHttpSecurity.CsrfSpec::disable)
+////                .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
+////                .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
+////                .authorizeExchange(exchange -> exchange
+////                        .pathMatchers(
+////                                "/swagger-ui.html",
+////                                "/swagger-ui/**",
+////                                "/v3/api-docs/**",
+////                                "/webjars/**",
+////                                "/login"
+////                        ).permitAll()
+//////                        .pathMatchers("").authenticated()
+////                    .anyExchange().permitAll()
+////                )
+////                .oauth2ResourceServer(oauth2-> oauth2
+////                        .jwt(Customizer.withDefaults()));
+////        log.info("Security configuration initialized successfully.");
+////        return http.build();
+////    }
 //
 //
-//    @Bean
-//    public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) throws Exception{
-//        http
-//                .csrf(ServerHttpSecurity.CsrfSpec::disable)
-//                .formLogin(ServerHttpSecurity.FormLoginSpec::disable)
-//                .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
-//                .authorizeExchange(exchange -> exchange
-//                        .pathMatchers(
-//                                "/swagger-ui.html",
-//                                "/swagger-ui/**",
-//                                "/v3/api-docs/**",
-//                                "/webjars/**"
-//                        ).permitAll()
-////                        .pathMatchers("").authenticated()
-//                    .anyExchange().permitAll()
-//                )
-//                .oauth2ResourceServer(oauth2-> oauth2
-//                        .jwt(Customizer.withDefaults()));
-//        log.info("Security configuration initialized successfully.");
-//        return http.build();
-//    }
 //}

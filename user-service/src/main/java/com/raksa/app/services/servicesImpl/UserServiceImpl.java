@@ -2,7 +2,7 @@ package com.raksa.app.services.servicesImpl;
 
 import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.PaginationResponse;
-import com.raksa.app.dtos.responses.UserResponseDto;
+import com.raksa.app.dtos.responses.userDto.UserResponseDto;
 import com.raksa.app.enumz.Role;
 import com.raksa.app.exception.ResponseMessage;
 import com.raksa.app.exception.exceptionHandle.DuplicateEntityException;

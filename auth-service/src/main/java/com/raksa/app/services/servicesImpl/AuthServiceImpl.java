@@ -2,21 +2,17 @@ package com.raksa.app.services.servicesImpl;
 
 import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.JwtTokenResponseDto;
-import com.raksa.app.dtos.responses.UserResponseDto;
+import com.raksa.app.dtos.responses.userDto.UserResponseDto;
 import com.raksa.app.exception.ResponseMessage;
 import com.raksa.app.exception.exceptionHandle.BadCredentialsException;
 import com.raksa.app.utils.JwtUtil;
-import com.raksa.app.utils.LoggerFormaterUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
 import java.util.List;

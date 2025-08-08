@@ -35,6 +35,9 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
         implementation 'io.micrometer:micrometer-tracing'
 
+        implementation 'org.springframework.security:spring-security-core:6.5.1'
+
+
         implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.5.0'
 
         // MapStruct for mapping DTOs

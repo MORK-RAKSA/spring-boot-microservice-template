@@ -2,8 +2,7 @@ package com.raksa.app.services.Iservices;
 
 import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.PaginationResponse;
-import com.raksa.app.dtos.responses.UserResponseDto;
-import org.springframework.stereotype.Service;
+import com.raksa.app.dtos.responses.userDto.UserResponseDto;
 
 import java.util.List;
 
