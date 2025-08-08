@@ -1,6 +1,5 @@
 package com.raksa.app.repository;
 
-import com.raksa.app.enumz.Role;
 import com.raksa.app.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

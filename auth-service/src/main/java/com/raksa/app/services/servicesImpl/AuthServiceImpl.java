@@ -9,14 +9,12 @@ import com.raksa.app.utils.JwtUtil;
 import com.raksa.app.utils.LoggerFormaterUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
@@ -50,11 +48,10 @@ public class AuthServiceImpl {
                 .bodyToMono(new ParameterizedTypeReference<ResponseMessage<UserResponseDto>>() {})
                 .map(ResponseMessage::getData);
     }
-    
+
     private boolean validatePassword(String rawPassword, String encodedPassword){
         return new BCryptPasswordEncoder().matches(rawPassword, encodedPassword);
     }
-
 
 //    public Mono<ResponseMessage<JwtTokenResponseDto>> login(@RequestBody UserRequestDto userRequestDto) {
 //        return userServiceWebClient.get()
@@ -82,17 +79,24 @@ public class AuthServiceImpl {
     public Mono<ResponseMessage<JwtTokenResponseDto>> login(@RequestBody UserRequestDto userRequestDto) {
         return fetchUser(userRequestDto.getUsername())
                 .flatMap(user -> {
-                    if (user == null) {
-                        return Mono.error(new BadCredentialsException("User not found"));
+                    LoggerFormaterUtils.convertDtoToJson("Response User", user);
+
+                    if (ObjectUtils.isEmpty(user)){
+                        return Mono.error(new BadCredentialsException("Invalid credential: Username is not correct"));
                     }
+
+//                    if (!user.getPassword().equals(userRequestDto.getUsername())) {
+//                        return Mono.error(new BadCredentialsException("Invalid credential: Username is not correct"));
+//                    }
+
                     if (validatePassword(userRequestDto.getPassword(), user.getPassword())) {
                         String token = JwtUtil.generateToken(user);
                         JwtTokenResponseDto jwtTokenResponseDto = new JwtTokenResponseDto();
                         jwtTokenResponseDto.setToken(token);
-                        log.info("\n\n\tLogin successful for user: {}\n\n", user.getUsername());
+                        log.info("\n\n\t----------------- Login successful for user: {}\n", user.getUsername());
                         return Mono.just(ResponseMessage.success("Login successful", jwtTokenResponseDto));
                     } else {
-                        return Mono.error(new BadCredentialsException("Invalid credentials"));
+                        return Mono.error(new BadCredentialsException("Invalid credential: Password is not correct"));
                     }
                 });
     }
