@@ -27,10 +27,6 @@ public class UserDetails {
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "role")
-    private Role role;
-
-    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
 

@@ -1,5 +1,6 @@
 package com.raksa.app.utils;
 
+import com.raksa.app.dtos.responses.UserResponseDto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 //import io.jsonwebtoken.SignatureAlgorithm;
@@ -15,9 +16,12 @@ public class JwtUtil {
         * @param username the username to include in the token
         * @return a JWT token as a String
      */
-    public static String generateToken(String username) {
+    public static String generateToken(UserResponseDto userResponseDto) {
         return Jwts.builder()
-                .setSubject(username)
+                .claim("id", userResponseDto.getId())
+                .setSubject(userResponseDto.getUsername())
+                .claim("password", userResponseDto.getPassword())
+                .claim("role", userResponseDto.getRole())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1-hour expiration
                 .signWith(key)

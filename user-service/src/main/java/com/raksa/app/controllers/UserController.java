@@ -35,9 +35,21 @@ public class UserController {
         return ResponseMessage.success("All Users Deleted Successfully.");
     }
 
+    @PostMapping("/delete-all-users1")
+    public ResponseMessage<Void> deleteAllUsers1() {
+        userService.deleteAll();
+        return ResponseMessage.success("All Users Deleted Successfully.");
+    }
+
     @GetMapping("/get-user-by-id")
     public ResponseMessage<UserResponseDto> getUserById(@RequestParam String id) {
         UserResponseDto responseDto = userService.getUserById(id);
+        return ResponseMessage.success("Fetch User Successfully.", responseDto);
+    }
+
+    @GetMapping("/get-user-by-username")
+    public ResponseMessage<UserResponseDto> getUserByUsername(@RequestParam String username) {
+        UserResponseDto responseDto = userService.getUserByUsername(username);
         return ResponseMessage.success("Fetch User Successfully.", responseDto);
     }
 

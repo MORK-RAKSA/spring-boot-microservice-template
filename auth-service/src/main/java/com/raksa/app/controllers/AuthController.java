@@ -25,8 +25,8 @@ public class AuthController {
     private WebClient userClient;
 
     @GetMapping("/get-user-info")
-    public Mono<ResponseMessage<List<UserResponseDto>>> getUserInfo() {
-        return authService.getAllUser();
+    public Mono<ResponseMessage<List<UserResponseDto>>> getUserInfo(@RequestHeader (value = "Authorization", defaultValue = "") String authHeader) {
+        return authService.getAllUser(authHeader);
     }
 
     @GetMapping("/get-user-by-id")
@@ -35,19 +35,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Mono<ResponseMessage<JwtTokenResponseDto>> login(@RequestBody UserRequestDto userRequestDto) {
-        if(userRequestDto.getUsername().equals("string") && userRequestDto.getPassword().equals("string")){
-            JwtTokenResponseDto jwtTokenResponseDto = new JwtTokenResponseDto();
-            String token = JwtUtil.generateToken(userRequestDto.getUsername());
-            jwtTokenResponseDto.setToken(token);
-            return Mono.just(ResponseMessage.success("Login successful", jwtTokenResponseDto));
-        }
-        return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials"));
+    public Mono<ResponseMessage<JwtTokenResponseDto>> login(@RequestBody UserRequestDto requestDto){
+        return authService.login(requestDto);
     }
-
-//    @PostMapping("/login")
-//    public Mono<ResponseMessage<String>> login(@RequestBody UserRequestDto requestDto) {
-//        return authService.login(requestDto);
-//    }
-
 }
