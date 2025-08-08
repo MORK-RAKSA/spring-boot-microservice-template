@@ -4,22 +4,34 @@ import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.JwtTokenResponseDto;
 import com.raksa.app.dtos.responses.UserResponseDto;
 import com.raksa.app.exception.ResponseMessage;
+import com.raksa.app.exception.exceptionHandle.BadCredentialsException;
+import com.raksa.app.utils.JwtUtil;
+import com.raksa.app.utils.LoggerFormaterUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl {
     private final WebClient userServiceWebClient;
 
-    public Mono<ResponseMessage<List<UserResponseDto>>> getAllUser() {
+    public Mono<ResponseMessage<List<UserResponseDto>>> getAllUser(String authHeader) {
+
         return userServiceWebClient.get()
                 .uri("/get-all-users")
+                .header("Authorization", authHeader)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<ResponseMessage<List<UserResponseDto>>>() {});
     }
@@ -31,14 +43,58 @@ public class AuthServiceImpl {
                 .bodyToMono(new ParameterizedTypeReference<ResponseMessage<UserResponseDto>>() {});
     }
 
-//
-//    public Mono<ResponseMessage<String>> login(UserRequestDto requestDto){
-//
-//        return userServiceWebClient.post()
-//                .uri("/login")
-//                .bodyValue(requestDto)
+    public Mono<UserResponseDto> fetchUser(String username) {
+        return userServiceWebClient.get()
+                .uri("/get-user-by-username?username={username}", username)
+                .retrieve()
+                .bodyToMono(new ParameterizedTypeReference<ResponseMessage<UserResponseDto>>() {})
+                .map(ResponseMessage::getData);
+    }
+    
+    private boolean validatePassword(String rawPassword, String encodedPassword){
+        return new BCryptPasswordEncoder().matches(rawPassword, encodedPassword);
+    }
+
+
+//    public Mono<ResponseMessage<JwtTokenResponseDto>> login(@RequestBody UserRequestDto userRequestDto) {
+//        return userServiceWebClient.get()
+//                .uri("/get-user-by-username?username={username}", userRequestDto.getUsername())
 //                .retrieve()
-//                .bodyToMono(new ParameterizedTypeReference<ResponseMessage<String>>() {})
-//                .map(response -> ResponseMessage.success("Login successful", response.getData()));
+//                .bodyToMono(new ParameterizedTypeReference<ResponseMessage<UserResponseDto>>() {})
+//                .flatMap(response -> {
+//                    UserResponseDto user = response.getData();
+//                    if (user == null) {
+//                        return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, "User not found"));
+//                    }
+//                    // Compare passwords (use BCrypt or your hashing method)
+//                    boolean matches = new BCryptPasswordEncoder().matches(userRequestDto.getPassword(), user.getPassword());
+//                    if (matches) {
+//                        String token = JwtUtil.generateToken(user);
+//                        JwtTokenResponseDto jwtTokenResponseDto = new JwtTokenResponseDto();
+//                        jwtTokenResponseDto.setToken(token);
+//                        return Mono.just(ResponseMessage.success("Login successful", jwtTokenResponseDto));
+//                    } else {
+//                        return Mono.error(new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials"));
+//                    }
+//                });
 //    }
+
+    public Mono<ResponseMessage<JwtTokenResponseDto>> login(@RequestBody UserRequestDto userRequestDto) {
+        return fetchUser(userRequestDto.getUsername())
+                .flatMap(user -> {
+                    if (user == null) {
+                        return Mono.error(new BadCredentialsException("User not found"));
+                    }
+                    if (validatePassword(userRequestDto.getPassword(), user.getPassword())) {
+                        String token = JwtUtil.generateToken(user);
+                        JwtTokenResponseDto jwtTokenResponseDto = new JwtTokenResponseDto();
+                        jwtTokenResponseDto.setToken(token);
+                        log.info("\n\n\tLogin successful for user: {}\n\n", user.getUsername());
+                        return Mono.just(ResponseMessage.success("Login successful", jwtTokenResponseDto));
+                    } else {
+                        return Mono.error(new BadCredentialsException("Invalid credentials"));
+                    }
+                });
+    }
+
 }

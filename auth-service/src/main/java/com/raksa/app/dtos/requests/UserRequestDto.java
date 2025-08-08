@@ -1,5 +1,6 @@
 package com.raksa.app.dtos.requests;
 
+import com.raksa.app.enumz.Role;
 import lombok.Data;
 
 @Data

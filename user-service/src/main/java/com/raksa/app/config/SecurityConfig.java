@@ -1,26 +1,16 @@
 package com.raksa.app.config;
 
+import com.raksa.app.utils.RoleAccess;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
+
 import org.springframework.security.config.web.server.ServerHttpSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.security.web.server.SecurityWebFilterChain;
+
 
 @Configuration
 public class SecurityConfig {
-
-    /**
-     * Password encoder bean for encoding passwords.
-     * This uses BCrypt hashing algorithm to securely hash passwords.
-     *
-     * @return BCryptPasswordEncoder instance
-     */
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         http
@@ -32,13 +22,23 @@ public class SecurityConfig {
                                 "/v3/api-docs",
                                 "/webjars/**",
                                 "/login",
-                                "/get-all-users",
-                                "/api-app/v1.0.0/user-service/**",
-                                "/get-user-by-id"
+                                "/get-user-by-username",
+                                "/create-user",
+                                "/h2-console"
                         ).permitAll()
-                        .anyExchange().authenticated()
+                        .anyExchange().hasAnyRole("SUPERADMIN")
                 )
-                .oauth2ResourceServer(oath2 -> oath2.jwt(Customizer.withDefaults()));
+                .oauth2ResourceServer(oauth2 -> oauth2
+                        .jwt(jwt -> jwt.jwtAuthenticationConverter(RoleAccess.grantedAuthoritiesExtractor()))
+                );
         return http.build();
     }
+
+//    private Converter<Jwt, Mono<AbstractAuthenticationToken>> grantedAuthoritiesExtractor() {
+//        return jwt -> {
+//            String role = jwt.getClaimAsString("role"); // get the role from JWT
+//            GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role);
+//            return Mono.just(new JwtAuthenticationToken(jwt, List.of(authority)));
+//        };
+//    }
 }

@@ -17,5 +17,7 @@ public interface UserService {
 
     PaginationResponse<UserResponseDto> getUserByPaginated(int page, int size);
 
-    public void deleteAllUsers();
+    void deleteAllUsers();
+
+    void deleteAll();
 }

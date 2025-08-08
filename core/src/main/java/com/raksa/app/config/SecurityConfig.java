@@ -16,6 +16,18 @@
 //@RequiredArgsConstructor
 //public class SecurityConfig {
 //
+//    /**
+//     * Password encoder bean for encoding passwords.
+//     * This uses BCrypt hashing algorithm to securely hash passwords.
+//     *
+//     * @return BCryptPasswordEncoder instance
+//     */
+//    @Bean
+//    public BCryptPasswordEncoder passwordEncoder(){
+//        return new BCryptPasswordEncoder();
+//    }
+//
+//
 //    @Bean
 //    public SecurityWebFilterChain securityFilterChain(ServerHttpSecurity http) throws Exception{
 //        http

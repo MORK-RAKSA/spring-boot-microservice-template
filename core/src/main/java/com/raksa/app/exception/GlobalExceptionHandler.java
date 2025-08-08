@@ -65,4 +65,15 @@ public class GlobalExceptionHandler {
                 .traceId(traceId)
                 .build();
     }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseMessage<Object> handleCredentialArgument(BadCredentialsException ex){
+        String traceId = MDC.get("traceId");
+        return ResponseMessage.builder()
+                .statusCode(HttpStatus.UNAUTHORIZED)
+                .code("ERROR_401")
+                .message("UNAUTHORIZED: " + ex.getMessage())
+                .traceId(traceId)
+                .build();
+    }
 }

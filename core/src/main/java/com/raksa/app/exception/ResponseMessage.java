@@ -32,7 +32,7 @@ public class ResponseMessage<T> {
                 .code(code)
                 .message(message)
                 .traceId(MDC.get("traceId"))
-                .pathURI(request.getPath().pathWithinApplication().value())
+                .pathURI(request.getPath().toString())
                 .build();
     }
 
