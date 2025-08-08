@@ -1,6 +1,6 @@
 package com.raksa.app.utils;
 
-import com.raksa.app.dtos.responses.userDto.UserResponseDto;
+import com.raksa.app.dtos.responses.UserResponseDto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 //import io.jsonwebtoken.SignatureAlgorithm;

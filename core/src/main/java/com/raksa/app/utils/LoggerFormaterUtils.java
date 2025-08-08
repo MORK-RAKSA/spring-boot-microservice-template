@@ -32,7 +32,7 @@ public class LoggerFormaterUtils {
     public static void convertDtoToJson(String PREFIX, Object obj){
         try {
             String prettyJson = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(obj);
-            log.info("\n{}:\n{}", PREFIX, prettyJson);
+            log.info("\n\n{}:\n{}", PREFIX, prettyJson);
         } catch (Exception e) {
             log.error("Error serializing DTO to JSON", e);
         }

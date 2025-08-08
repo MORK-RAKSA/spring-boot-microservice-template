@@ -2,7 +2,7 @@ package com.raksa.app.controllers;
 
 import com.raksa.app.dtos.requests.UserRequestDto;
 import com.raksa.app.dtos.responses.JwtTokenResponseDto;
-import com.raksa.app.dtos.responses.userDto.UserResponseDto;
+import com.raksa.app.dtos.responses.UserResponseDto;
 import com.raksa.app.exception.ResponseMessage;
 import com.raksa.app.services.servicesImpl.AuthServiceImpl;
 import lombok.RequiredArgsConstructor;
