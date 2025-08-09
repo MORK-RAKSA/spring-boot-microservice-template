@@ -36,6 +36,16 @@ public class ResponseMessage<T> {
                 .build();
     }
 
+    public static <T> ResponseMessage<T> error(String message){
+        return ResponseMessage.<T>builder()
+                .timestamp(LocalDateTime.now().toString())
+                .statusCode(HttpStatus.SUCCESSFULLY)
+                .code("ERROR_500")
+                .message(message)
+                .traceId(MDC.get("traceId"))
+                .build();
+    }
+
     public static <T> ResponseMessage<T> success(String message,T data){
         return ResponseMessage.<T>builder()
                 .timestamp(LocalDateTime.now().toString())
